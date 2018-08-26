@@ -1,7 +1,18 @@
 package com.lahtinen.jaakko.data;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Book {
 
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name ="id", updatable = false, nullable = false)
+	private long id;
 	private String title;
 	private String author;
 	private int year;
@@ -14,6 +25,10 @@ public class Book {
 		this.year = year;
 		this.isbn = isbn;
 		this.price = price;
+	}
+	
+	public Book() {
+
 	}
 
 	public String getTitle() {
@@ -55,11 +70,21 @@ public class Book {
 	public void setPrice(double price) {
 		this.price = price;
 	}
+	
+	public long getId() {
+		return id;
+	}
+	
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
-		return "Book [title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price
-				+ "]";
+		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn
+				+ ", price=" + price + "]";
 	}
+
+
 	
 }
