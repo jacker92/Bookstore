@@ -8,11 +8,16 @@
 	<h1>Add new book</h1>
 	<br />
 
-	<form action="#" th:action="@{/save}" method="post">
+	<form th:object="${book}" action="#" th:action="@{/save}" method="post">
 		Title: <input type="text" name="Title" /> <br/> <br/>
 		Author: <input type="text" name="Author" /> <br/> <br/>
 		ISBN: <input type="text" name="Isbn" /> <br/> <br/>
 		Year: <input type="text" name="Year" /> <br/> <br/>
+		<div style="clear: both; display: block; height: 10px;"></div>						
+		  	<label for="catlist">Category</label>
+			 <select id="catlist" th:field="*{category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.getCategoryid()}" th:text="${category.getName()}"></option>
+    		</select>
 		<input type="submit" th:value="Add" /> <br/>
 	</form>
 </body>
