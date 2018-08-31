@@ -7,6 +7,12 @@
 <body>
 	<h1>Books</h1> <br/>
 	
+	<h3 th:inline="text">Welcome [[${#httpServletRequest.remoteUser}]]</h3>
+	<div class="col-md-4" style="padding:20px 0">
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-danger"/>
+		</form>
+	
 	<table border="1px">
 	<tr>
 	<th>Author</th>
