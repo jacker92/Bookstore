@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.lahtinen.jaakko.data.Book;
 
@@ -30,6 +31,16 @@ public class BookController {
 	public String indexPage(Model model) {
 		return "index";
 	} 
+	
+	@RequestMapping(value="/", method=RequestMethod.GET) 
+		public String rootPage(Model model) {
+			return "redirect:booklist";
+		}
+	
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public String loginPage(Model model) {
+		return "login";
+	}
 	
     @RequestMapping(value = "/add")
     public String addStudent(Model model){
@@ -74,6 +85,11 @@ public class BookController {
     public String studentList(Model model) {	
         model.addAttribute("books", repository.findAll());
         return "booklist";
+    }
+    
+    @RequestMapping(value="/api/books/{id}", method = RequestMethod.GET)
+    public @ResponseBody Optional<Book> findBookRest(@PathVariable("id") Long bookID) {
+    return repository.findById(bookID);
     }
 	
 }
