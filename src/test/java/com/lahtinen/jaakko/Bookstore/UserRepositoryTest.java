@@ -11,8 +11,6 @@ import com.lahtinen.jaakko.data.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.util.List;
-
 @RunWith(SpringRunner.class)
 @DataJpaTest
 public class UserRepositoryTest {
