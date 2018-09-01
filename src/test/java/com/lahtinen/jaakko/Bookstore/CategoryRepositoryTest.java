@@ -9,9 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.lahtinen.jaakko.controller.CategoryRepository;
-import com.lahtinen.jaakko.controller.UserRepository;
 import com.lahtinen.jaakko.data.Category;
-import com.lahtinen.jaakko.data.User;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest

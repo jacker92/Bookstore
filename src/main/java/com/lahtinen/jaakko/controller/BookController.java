@@ -66,20 +66,7 @@ public class BookController {
     
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(Book book){
-    	System.out.println(book);
-//     	if(repository.existsById(book.getId())) {
-//    		System.out.println("It exists");
-//    		Book existing = repository.getOne(book.getId());
-//    		existing.setTitle(book.getTitle());
-//    		existing.setAuthor(book.getAuthor());
-//    		existing.setIsbn(book.getIsbn());
-//    		existing.setYear(book.getYear());
-//    		existing.setCategory(book.getCategory());
-//    		repository.deleteById(book.getId());
-//    		repository.save(existing);
-//    	} else {
             repository.save(book);
-    //	}
         return "redirect:booklist";
     }    
     
