@@ -10,10 +10,14 @@
 
 	<form th:object="${book}" action="#" th:action="@{../save}" method="post">
 		 <input type="hidden" th:field="*{id}" class="form-control" />
-		Title:<input type="text" th:field="*{Title}" /> 
-		Author: <input type="text" th:field="*{Author}" /> 
-		ISBN: <input type="text" th:field="*{Isbn}" />
-		Year: <input type="text" th:field="*{Year}" />
+		Title:<input type="text" th:field="*{Title}" /> <br/> 
+		Author: <input type="text" th:field="*{Author}" /> <br/>
+		ISBN: <input type="text" th:field="*{Isbn}" /> <br/>
+		Year: <input type="text" th:field="*{Year}" /> <br/>
+		 	<label for="catlist">Category</label>
+			 <select id="catlist" th:field="*{Category}" class="form-control">
+       			<option th:each="category: ${categories}" th:value="${category.getCategoryid()}" th:text="${category.getName()}"></option>
+    		</select>
 		<input type="submit" class="btn btn-success" value="Save"></input>
 	</form>
 </body>
