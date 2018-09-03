@@ -31,12 +31,15 @@ public class BookstoreApplication {
 			urepository.save(user1);
 			urepository.save(user2);
 			Category c1 = new Category("Pelottavat kirjat");
-			Category c2 = new Category("Nuorten kirjat");
+			Category c2 = new Category("Fantasia");
+			Category c3 = new Category("Historia");
 			crepository.save(c1);
 			crepository.save(c2);
+			crepository.save(c3);
 			log.info("Saving couple of new books");
 			repository.save(new Book("Harry Potter ja viisasten kivi", "J.K.Rowling", 2000, "1234-asdf", 25.23, c1));
-			repository.save(new Book("Tarina menneisyydesta", "Linda Nummelin", 2017, "1234-XXX", 14.90, c2));
+			repository.save(new Book("The Fall of Gondolin", "J. R. R. Tolkien", 2018, "9780008302757", 20.00, c2));
+			repository.save(new Book("Viiden meren kansa", "Risto Isomäki", 2018, "9789522649393", 25.50, c3));
 			log.info("Fetching all books");
 			for (Book b : repository.findAll()) {
 				log.info(b.getCategory().getName());
