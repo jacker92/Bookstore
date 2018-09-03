@@ -1,6 +1,7 @@
 package com.lahtinen.jaakko.Bookstore;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.assertThat;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,6 +30,15 @@ public class CategoryRepositoryTest {
 	public void deleteAllAndReturnCountOfZero() {
 		repository.deleteAll();
 		assertThat(repository.count()).isZero();
+	}
+	
+	@Test
+	public void addOneCategoryAndCountShouldBePlusOne() {
+		int count = Integer.parseInt(repository.count()+"");
+		repository.save(new Category("TestCategory"));
+		int newCount = Integer.parseInt(repository.count()+""); 
+		
+		assertThat(newCount-count).isOne();
 	}
 	
 	
