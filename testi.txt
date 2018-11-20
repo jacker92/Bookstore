@@ -1,3 +1,7 @@
 Hello asdfasdf
 
+<<<<<<< HEAD
 asdfasdfasdfaasdfasdf
+=======
+Tämä on testi
+>>>>>>> 8ef49a91c24829c00e5f199d03e6b254272f0880
